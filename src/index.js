@@ -4,15 +4,13 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import Header from './components/Header';
-import Main from './components/Main';
 import Footer from './components/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
-    <Main />
-    <Footer />
     <App />
+    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );
