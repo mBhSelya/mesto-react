@@ -28,7 +28,7 @@ function Main(props) {
             .catch((err) => {
                 console.log(err);
             })
-    })
+    }, [])
 
     return(
         <>
@@ -49,22 +49,10 @@ function Main(props) {
                     <button onClick={props.onAddPlace} className="profile__add-button" type="button" aria-label="Добавить"></button>
                 </section>
                 <section className="cards">
-                    
-                    {Cards.map((cardInfo, i) => (
+                    {Cards.map((cardInfo, i) => ( 
                         <Card key={i}
-                            card = {
-                                <article className="card">
-                                    <button className="card__delete-button" type="button"></button>
-                                    <img onClick = {() => {props.onCardClick(cardInfo)}} className="card__image" src={`${cardInfo.link}`} alt="Фотография" />
-                                    <div className="card__info">
-                                        <h2 className="card__title">{cardInfo.name}</h2>
-                                        <div className="car d__like">
-                                            <button className="card__like-icon" type="button" aria-label="Лайк"></button>
-                                            <p className="card__like-counter">{cardInfo.likes.length}</p>
-                                        </div>
-                                    </div>
-                                </article>
-                            }
+                            popup = {() => {props.onCardClick(cardInfo)}}
+                            dataCard = {cardInfo}
                         />
                     ))}
                 </section>
