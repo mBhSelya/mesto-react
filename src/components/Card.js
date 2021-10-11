@@ -1,8 +1,12 @@
 export default function Card(props) {
+    function handleClick() {
+        props.onCardClick(props.dataCard);
+    }
+
     return(
         <article className="card">
             <button className="card__delete-button" type="button"></button>
-            <img onClick = {props.popup} className="card__image" src={`${props.dataCard.link}`} alt="Фотография" />
+            <img onClick = {handleClick} className="card__image" src={`${props.dataCard.link}`} alt="Фотография" />
             <div className="card__info">
                 <h2 className="card__title">{props.dataCard.name}</h2>
                 <div className="card__like">

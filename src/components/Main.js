@@ -49,9 +49,9 @@ function Main(props) {
                     <button onClick={props.onAddPlace} className="profile__add-button" type="button" aria-label="Добавить"></button>
                 </section>
                 <section className="cards">
-                    {Cards.map((cardInfo, i) => ( 
-                        <Card key={i}
-                            popup = {() => {props.onCardClick(cardInfo)}}
+                    {Cards.map((cardInfo) => ( 
+                        <Card key={cardInfo._id}
+                            onCardClick = {props.onCardClick}
                             dataCard = {cardInfo}
                         />
                     ))}
