@@ -49,8 +49,6 @@ class Api {
         .then(this._checkResponse)
     }
 
-
-
     deleteCard(id) {
         return fetch(`${this._baseUrl}cards/${id}`, {
             method: 'DELETE',
@@ -59,23 +57,23 @@ class Api {
         .then(this._checkResponse)
     }
 
-    setLikeCard(id) {
-        return fetch(`${this._baseUrl}cards/likes/${id}`, {
-            method: 'PUT',
-            headers: this._headers
-        })
-        .then(this._checkResponse)
+    changeLikeCardStatus(id, likeStatus) {
+        if (likeStatus) {
+            return fetch(`${this._baseUrl}cards/likes/${id}`, {
+                method: 'DELETE',
+                headers: this._headers
+            })
+            .then(this._checkResponse)
+        } else {
+            return fetch(`${this._baseUrl}cards/likes/${id}`, {
+                method: 'PUT',
+                headers: this._headers
+            })
+            .then(this._checkResponse)
+        }
     }
 
-    deleteLikeCard(id) {
-        return fetch(`${this._baseUrl}cards/likes/${id}`, {
-            method: 'DELETE',
-            headers: this._headers
-        })
-        .then(this._checkResponse)
-    }
-
-    editAvatar({link}) {
+    editAvatar(link) {
         return fetch(`${this._baseUrl}users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
