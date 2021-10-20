@@ -62,33 +62,33 @@ function App() {
         ApiConfig.sendUserInfo(obj)
             .then((res) => {
                 setCurrentUser(res);
+                closeAllPopups();
             })
             .catch((err) => {
                 console.log(err);
             })
-        closeAllPopups();
     }
 
     function handleUpdateAvatar(link) {
         ApiConfig.editAvatar(link)
             .then((res) => {
                 setCurrentUser(res);
+                closeAllPopups();
             })
             .catch((err) => {
                 console.log(err);
             })
-        closeAllPopups();
     }
 
     function handleAddCard(obj) {
         ApiConfig.postNewCard(obj)
             .then((newCard) => {
                 setCards([newCard, ...cards]);
+                closeAllPopups();
             })
             .catch((err) => {
                 console.log(err);
             })
-        closeAllPopups();
     }
 
     function handleCardLike(card) {
